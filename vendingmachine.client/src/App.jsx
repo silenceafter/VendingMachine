@@ -1,49 +1,35 @@
-import { useEffect, useState } from 'react';
-import './App.css';
+import './app.css';
+import React, { Suspense, lazy, useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import CssBaseline from '@mui/material/CssBaseline';
+import { Container } from '@mui/material';
+import Header from './components/header';
+import { Home } from './pages/home';
+import { Login } from './pages/login';
+import { Logout } from './pages/logout';
+import { AdminMain } from './pages/admin/main';
 
-function App() {
-    const [forecasts, setForecasts] = useState();
-
-    useEffect(() => {
-        populateWeatherData();
-    }, []);
-
-    const contents = forecasts === undefined
-        ? <p><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationreact">https://aka.ms/jspsintegrationreact</a> for more details.</em></p>
-        : <table className="table table-striped" aria-labelledby="tableLabel">
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Temp. (C)</th>
-                    <th>Temp. (F)</th>
-                    <th>Summary</th>
-                </tr>
-            </thead>
-            <tbody>
-                {forecasts.map(forecast =>
-                    <tr key={forecast.date}>
-                        <td>{forecast.date}</td>
-                        <td>{forecast.temperatureC}</td>
-                        <td>{forecast.temperatureF}</td>
-                        <td>{forecast.summary}</td>
-                    </tr>
-                )}
-            </tbody>
-        </table>;
-
+const App = () => {
+    //
     return (
-        <div>
-            <h1 id="tableLabel">Weather forecast</h1>
-            <p>This component demonstrates fetching data from the server.</p>
-            {contents}
-        </div>
+        <Router>            
+            <div className="App">
+                <CssBaseline />
+                <Container maxWidth="lg">
+                    <Header title="Автомат по продаже напитков" />
+                    <main>
+                        <Routes>
+                            <Route index element={<Home />} />
+                            <Route path="/login" element={<Login />} />
+                            <Route path="/logout" element={<Logout />} />
+                            <Route path="/admin/main" element={<AdminMain />} />
+                        </Routes>
+                    </main>
+                </Container>
+            </div>
+        </Router>
     );
-    
-    async function populateWeatherData() {
-        const response = await fetch('weatherforecast');
-        const data = await response.json();
-        setForecasts(data);
-    }
-}
+};
 
 export default App;
