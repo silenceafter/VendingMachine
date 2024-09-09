@@ -53,9 +53,11 @@ export default defineConfig({
     },
     server: {
         proxy: {
-            '^/weatherforecast': {
-                target,
+            '^/brands': {
+                target: 'https://localhost:7193',
+                changeOrigin: true,
                 secure: false,
+                rewrite: (path) => path.replace(/^\/brands/, '/brands'),
             },            
         },
         port: 5173,

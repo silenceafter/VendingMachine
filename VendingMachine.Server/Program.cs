@@ -25,10 +25,10 @@ builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnC
 builder.Services.AddCors(options =>
     options.AddPolicy("policy", builder =>
     {
-        builder.WithOrigins("https://localhost:5173", "https://localhost:7193", "http://localhost:5000")
-            .AllowAnyMethod()
-            .AllowAnyHeader()
-            .AllowCredentials();
+        options.AddPolicy("AllowAllOrigins",
+            builder => builder.AllowAnyOrigin()
+                              .AllowAnyMethod()
+                              .AllowAnyHeader());
     })
 );
 
@@ -50,6 +50,8 @@ builder.Services.AddDbContext<DataConnectionDbContext>(options =>
 builder.Services.AddControllers();
 builder.Services.AddScoped<IBrandRepository, BrandRepository>();
 builder.Services.AddScoped<IBrandService, BrandService>();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IProductService, ProductService>();
 //
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -63,10 +65,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors("policy");
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
+app.UseCors("AllowAllOrigins");
 app.UseAuthorization();
 app.MapControllers();
 app.Run();

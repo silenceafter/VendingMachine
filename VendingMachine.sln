@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VendingMachine.Server", "VendingMachine.Server\VendingMachine.Server.csproj", "{7CD96D4F-B4BB-46CF-9C2C-90AE03BE9FDC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VendingMachine.Server", "VendingMachine.Server\VendingMachine.Server.csproj", "{7CD96D4F-B4BB-46CF-9C2C-90AE03BE9FDC}"
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "vendingmachine.client", "vendingmachine.client\vendingmachine.client.esproj", "{C0250116-4774-4C19-B160-145F872614E7}"
 EndProject
@@ -18,8 +18,6 @@ Global
 		{7CD96D4F-B4BB-46CF-9C2C-90AE03BE9FDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7CD96D4F-B4BB-46CF-9C2C-90AE03BE9FDC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C0250116-4774-4C19-B160-145F872614E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C0250116-4774-4C19-B160-145F872614E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C0250116-4774-4C19-B160-145F872614E7}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{C0250116-4774-4C19-B160-145F872614E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0250116-4774-4C19-B160-145F872614E7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C0250116-4774-4C19-B160-145F872614E7}.Release|Any CPU.Deploy.0 = Release|Any CPU

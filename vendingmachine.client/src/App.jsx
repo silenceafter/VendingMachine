@@ -10,6 +10,7 @@ import { Login } from './pages/login';
 import { Logout } from './pages/logout';
 import { AdminMain } from './pages/admin/main';
 import { AdminBrands } from './pages/admin/brands';
+import { AdminProducts } from './pages/admin/products';
 
 const App = () => {
     //
@@ -26,6 +27,7 @@ const App = () => {
                             <Route path="/logout" element={<Logout />} />
                             <Route path="/admin/main" element={<AdminMain />} />
                             <Route path="/admin/brands" element={<AdminBrands />} />
+                            <Route path="/admin/products" element={<AdminProducts />} />
                         </Routes>
                     </main>
                 </Container>

@@ -31,7 +31,7 @@ namespace VendingMachine.Server.Controllers
         }
 
         [HttpPost("add-brands")]
-        public async Task<IActionResult> AddBrand(string name)
+        public async Task<IActionResult> AddBrand([FromBody] string name)
         {
             var result = await _brandService.AddBrandAsync(name);
             return result
