@@ -27,6 +27,14 @@ namespace VendingMachine.Server.Data
                 .HasOne(oi => oi.Order)
                 .WithMany(o => o.OrderItems)
                 .HasForeignKey(oi => oi.OrderId);
+
+            modelBuilder.Entity<Brand>()
+                .HasIndex(e => e.Name)
+                .IsUnique();
+
+            modelBuilder.Entity<Product>()
+                .HasIndex(e => e.Name)
+                .IsUnique();
         }
     }
 }

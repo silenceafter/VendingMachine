@@ -9,21 +9,23 @@ import { Home } from './pages/home';
 import { Login } from './pages/login';
 import { Logout } from './pages/logout';
 import { AdminMain } from './pages/admin/main';
+import { AdminBrands } from './pages/admin/brands';
 
 const App = () => {
     //
     return (
         <Router>            
             <div className="App">
-                <CssBaseline />
-                <Container maxWidth="lg">
-                    <Header title="Автомат по продаже напитков" />
+                <CssBaseline />      
+                <Header title="Автомат по продаже напитков" />
+                <Container maxWidth={false}>                 
                     <main>
                         <Routes>
                             <Route index element={<Home />} />
                             <Route path="/login" element={<Login />} />
                             <Route path="/logout" element={<Logout />} />
                             <Route path="/admin/main" element={<AdminMain />} />
+                            <Route path="/admin/brands" element={<AdminBrands />} />
                         </Routes>
                     </main>
                 </Container>

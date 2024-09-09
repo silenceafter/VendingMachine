@@ -9,10 +9,10 @@ using VendingMachine.Server.Data;
 
 #nullable disable
 
-namespace VendingMachine.Server.Migrations.DataConnectionDb
+namespace VendingMachine.Server.Migrations
 {
     [DbContext(typeof(DataConnectionDbContext))]
-    [Migration("20240907192949_AddModels")]
+    [Migration("20240908190327_AddModels")]
     partial class AddModels
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -38,6 +38,9 @@ namespace VendingMachine.Server.Migrations.DataConnectionDb
                         .HasColumnType("character varying(50)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.ToTable("Brands");
                 });
@@ -134,6 +137,9 @@ namespace VendingMachine.Server.Migrations.DataConnectionDb
                     b.HasKey("Id");
 
                     b.HasIndex("BrandId");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.ToTable("Products");
                 });

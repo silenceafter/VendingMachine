@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace VendingMachine.Server.Migrations.DataConnectionDb
+namespace VendingMachine.Server.Migrations
 {
     public partial class AddModels : Migration
     {
@@ -96,6 +96,12 @@ namespace VendingMachine.Server.Migrations.DataConnectionDb
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_Brands_Name",
+                table: "Brands",
+                column: "Name",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_OrderItems_OrderId",
                 table: "OrderItems",
                 column: "OrderId");
@@ -104,6 +110,12 @@ namespace VendingMachine.Server.Migrations.DataConnectionDb
                 name: "IX_Products_BrandId",
                 table: "Products",
                 column: "BrandId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Products_Name",
+                table: "Products",
+                column: "Name",
+                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

@@ -10,7 +10,7 @@ const Login = () => {
     useEffect(() => {    
         const handleSubmit = async () => {            
             dispatch(login());
-            navigate('/admin/test');            
+            navigate('/admin/main');            
         };
         handleSubmit();
     }, []);
