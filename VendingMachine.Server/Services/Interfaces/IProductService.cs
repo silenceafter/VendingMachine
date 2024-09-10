@@ -7,5 +7,6 @@ namespace VendingMachine.Server.Services.Interfaces
     {
         Task<IEnumerable<ProductDTO>> GetAllProductsAsync();
         Task<bool> AddProductAsync(ProductDTO product);
+        Task<IEnumerable<Product>> GetProductsByBrandAsync(string brandName);
     }
 }

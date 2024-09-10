@@ -26,7 +26,7 @@ const AdminBrands = () => {
         const brandsRequest = async () => {
             setDataLoading(true);
             try {
-                const response = await fetch('https://localhost:7193/brands/get-brands/');
+                const response = await fetch('/brands/get-brands/');
                 if (response.ok) {
                     const brandsResponse = await response.json();
                     setBrandsData(brandsResponse);

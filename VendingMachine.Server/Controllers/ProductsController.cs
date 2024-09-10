@@ -31,5 +31,12 @@ namespace VendingMachine.Server.Controllers
                 ? StatusCode(201, "Запись добавлена успешно")
                 : StatusCode(500, "Ошибка при добавлении записи");
         }
+
+        [HttpGet("get-products-by-brand")]
+        public async Task<IActionResult> GetProductsByBrand(string BrandName)
+        {
+            var result = await _productService.GetProductsByBrandAsync(BrandName);
+            return Ok(result);
+        }
     }
 }

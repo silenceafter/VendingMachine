@@ -53,5 +53,31 @@ namespace VendingMachine.Server.Repositories
                 return false;
             }
         }
+
+        public async Task<IEnumerable<Product>> GetProductsByBrandAsync(string brandName)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(brandName))
+                {
+                    //найти бренд
+                    var brandId = await _context.Brands
+                        .Where(b => b.Name.ToLower() == brandName.ToLower())
+                        .Select(b => b.Id)
+                        .FirstOrDefaultAsync();
+                    return await _context.Products
+                        .Where(p => p.BrandId == brandId)
+                        .ToListAsync();
+                }
+                else
+                {
+                    return await _context.Products.ToListAsync();
+                }                    
+            }
+            catch (Exception ex)
+            {
+                return Enumerable.Empty<Product>();
+            }
+        }
     }
 }

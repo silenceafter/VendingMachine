@@ -25,5 +25,10 @@ namespace VendingMachine.Server.Services
         {
             return await _productRepository.AddAsync(product);
         }
+
+        public async Task<IEnumerable<Product>> GetProductsByBrandAsync(string brandName)
+        {
+            return await _productRepository.GetProductsByBrandAsync(brandName);
+        }
     }
 }

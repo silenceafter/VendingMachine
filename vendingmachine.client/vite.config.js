@@ -58,6 +58,12 @@ export default defineConfig({
                 changeOrigin: true,
                 secure: false,
                 rewrite: (path) => path.replace(/^\/brands/, '/brands'),
+            },
+            '^/products': {
+                target: 'https://localhost:7193',
+                changeOrigin: true,
+                secure: false,
+                rewrite: (path) => path.replace(/^\/products/, '/products'),
             },            
         },
         port: 5173,

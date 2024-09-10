@@ -11,6 +11,9 @@ import { Logout } from './pages/logout';
 import { AdminMain } from './pages/admin/main';
 import { AdminBrands } from './pages/admin/brands';
 import { AdminProducts } from './pages/admin/products';
+import { AdminCoins } from './pages/admin/coins';
+import { AdminOrders } from './pages/admin/orders';
+import { Shop } from './pages/shop';
 
 const App = () => {
     //
@@ -28,6 +31,9 @@ const App = () => {
                             <Route path="/admin/main" element={<AdminMain />} />
                             <Route path="/admin/brands" element={<AdminBrands />} />
                             <Route path="/admin/products" element={<AdminProducts />} />
+                            <Route path="/admin/coins" element={<AdminCoins />} />
+                            <Route path="/admin/orders" element={<AdminOrders />} />
+                            <Route path="/shop" element={<Shop />} />
                         </Routes>
                     </main>
                 </Container>

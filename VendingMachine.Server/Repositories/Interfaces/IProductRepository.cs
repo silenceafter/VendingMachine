@@ -10,5 +10,6 @@ namespace VendingMachine.Server.Repositories.Interfaces
         Task<bool> AddAsync(ProductDTO product);
         /*Task UpdateAsync(string product);
         Task DeleteAsync(int id);*/
+        Task<IEnumerable<Product>> GetProductsByBrandAsync(string brandName);
     }
 }

@@ -1,9 +1,13 @@
 import React from 'react';
-import { styled } from '@mui/system';
 import { Button } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
-    return (<Button variant="contained" color="primary">Начать покупки</Button>);
+    return (
+        <Link to="/shop" style={{ textDecoration: 'none' }}>                                            
+            <Button variant="contained" color="primary">Начать покупки</Button>
+        </Link>
+    );
 };
 
 export { Home };
